@@ -1,0 +1,34 @@
+
+  <div *ngIf="!searchResult" class="row text-center">
+    <h3>Sorry there are no results for your search. Please try another <a href="javascript:void(0)" (click)="goToSearchPage()">search</a>.</h3>
+  </div>
+  <div *ngIf="searchResult">
+    <div *ngFor="let route of searchResult.result" class="route-wrapper row">
+      <div class="col-md-5 col-xs-9 text-left"><h4><b>{{route.departure}}
+        <i class="fa transport-icon fa-{{route.transport}}" aria-hidden="true"></i>
+        {{route.arrival}}</b></h4></div>
+      <div class="col-md-5 hidden-xs">
+        <b>{{route.transport}}</b> {{route.reference}} for
+        <span *ngIf="route.duration && route.duration.h">{{route.duration.h}}h</span>{{route.duration.m}}m
+      </div>
+      <div class="col-md-2 col-xs-3 text-right">
+        <h4><b><span *ngIf="route.price">{{route.price}}</span><span *ngIf="!route.price">{{route.cost}}</span>€</b></h4>
+      </div>
+      <div class="col-xs-12 hidden-md text-left">
+        <b>{{route.transport}}</b> {{route.reference}} for
+        <span *ngIf="route.duration && route.duration.h">{{route.duration.h}}h</span>{{route.duration.m}}m
+      </div>
+    </div>
+    <div class="route-wrapper row">
+      <div class="col-xs-4 text-left"><h4><b>Total</b></h4></div>
+      <div class="col-xs-4 text-center"><h4>{{searchResult.stringDuration}}</h4></div>
+      <div class="col-xs-4 text-right"><h4><b>{{searchResult.price}}€</b></h4></div>
+    </div>
+    <div class="row">
+      <button class="btn btn-default btn-reset pull-right" (click)="goToSearchPage()">
+        <i class="fa fa-undo" aria-hidden="true"></i>Reset
+      </button>
+    </div>
+
+  </div>
+

@@ -1,0 +1,56 @@
+<form [formGroup]="searchFrom" (ngSubmit)="onFormSubmit()">
+  <div class="row">
+    <div *ngIf="isLocationsEquals && isValidFormSubmitted != null && !isValidFormSubmitted"
+         class="col-md-12 search-col"
+         [ngClass] = "'error'">
+      Please choose other location. Locations can not be the same.
+    </div>
+    <div *ngIf="(searchFrom.get('fromSearch').invalid || searchFrom.get('toSearch').invalid)
+    && isValidFormSubmitted != null && !isValidFormSubmitted"
+         class="col-md-12 search-col hidden-xs hidden-sm"
+         [ngClass] = "'error'">
+      <span class="col-md-6" style="padding-left: 0"><span *ngIf="(searchFrom.get('fromSearch').invalid)">Destination From is required</span></span>
+      <span class="col-md-6" *ngIf="searchFrom.get('toSearch').invalid">Destination To is required.</span>
+
+    </div>
+    <div *ngIf="searchFrom.get('fromSearch').invalid && isValidFormSubmitted != null && !isValidFormSubmitted"
+         class="col-sm-12 search-col hidden-lg hidden-md"
+         [ngClass] = "'error'">
+      Destination From is required.
+    </div>
+    <div class="col-sm-12 col-md-6 search-col">
+      <input formControlName="fromSearch"
+             [typeahead]="cities"
+             typeaheadOptionField="name"
+             typeaheadMinLength="0"
+             placeholder="From"
+             class="form-control">
+    </div>
+    <div *ngIf="searchFrom.get('toSearch').invalid && isValidFormSubmitted != null && !isValidFormSubmitted"
+         class="col-sm-12 search-col hidden-md  hidden-lg"
+         [ngClass] = "'error'">
+      Destination To is required.
+    </div>
+    <div class="col-sm-12 col-md-6 search-col">
+      <input formControlName="toSearch"
+             [typeahead]="cities"
+             typeaheadOptionField="name"
+             typeaheadMinLength="0"
+             placeholder="To"
+             class="form-control">
+    </div>
+    <div class="col-sm-12 col-md-6 search-col">
+      <div class="ck-button">
+        <label>
+          <input type="radio" value="cheapest" formControlName="searchType"><span>Cheapest</span>
+        </label>
+        <label>
+          <input type="radio" value="fastest" formControlName="searchType"><span>Fastest</span>
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <button class="btn btn-default pull-right btn-search"><i class="fa fa-search" aria-hidden="true"></i>Search</button>
+    </div>
+  </div>
+</form>

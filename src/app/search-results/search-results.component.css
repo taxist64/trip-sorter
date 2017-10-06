@@ -1,0 +1,31 @@
+.route-wrapper {
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #f1f1f1;
+}
+
+.route-wrapper h4 {
+  margin: 0;
+}
+
+.btn-reset {
+  padding: 8px 40px;
+  background: #bd4545;
+  color: white;
+  font-size: 16px;
+}
+
+.fa-undo {
+  padding-right: 5px;
+}
+
+.transport-icon {
+  color: #bd4545;
+  padding: 0 5px;
+}
+
+@media (max-width: 991px) {
+  .btn-reset {
+    width: 100%;
+  }
+}
