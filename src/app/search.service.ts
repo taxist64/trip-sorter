@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class SearchService {
 
-  constructor() { }
+  constructor() {
+  }
 
   public getCities() {
     return [
@@ -12,136 +13,18 @@ export class SearchService {
       {name: 'Paris'},
       {name: 'Warsaw'},
       {name: 'Rome'},
-      {name: 'Minsk'}
-      ];
+      {name: 'Brussels'},
+      {name: 'Istanbul'},
+      {name: 'Stockholm'},
+      {name: 'Prague'},
+      {name: 'Moscow'},
+      {name: 'Geneva'},
+      {name: 'Kiev'}
+    ];
   }
 
   public getResults() {
-    return {
-      'currency': 'EUR',
-      deals: [
-      {
-        'transport': 'train',
-        departure: 'London',
-        'arrival': 'Amsterdam',
-        'duration': {
-          'h': '05',
-          'm': '00'
-        },
-        'cost': 160,
-        'discount': 10,
-        'reference': 'TLA0500'
-      },
-      {
-        'transport': 'bus',
-        departure: 'London',
-        'arrival': 'Amsterdam',
-        'duration': {
-          'h': '07',
-          'm': '45'
-        },
-        'cost': 40,
-        'discount': 25,
-        'reference': 'BLA0745'
-      },
-      {
-        'transport': 'car',
-        departure: 'London',
-        'arrival': 'Amsterdam',
-        'duration': {
-          'h': '04',
-          'm': '45'
-        },
-        'cost': 120,
-        'discount': 0,
-        'reference': 'CLA0445'
-      },
-      {
-        'transport': 'train',
-        departure: 'London',
-        'arrival': 'Paris',
-        'duration': {
-          'h': '04',
-          'm': '30'
-        },
-        'cost': 160,
-        'discount': 0,
-        'reference': 'TLP0430'
-      },
-      {
-        'transport': 'bus',
-        departure: 'Paris',
-        'arrival': 'Warsaw',
-        'duration': {
-          'h': '05',
-          'm': '30'
-        },
-        'cost': 40,
-        'discount': 50,
-        'reference': 'BLP0530'
-      },
-      {
-        'transport': 'car',
-        departure: 'Warsaw',
-        'arrival': 'Amsterdam',
-        'duration': {
-          'h': '04',
-          'm': '15'
-        },
-        'cost': 120,
-        'discount': 0,
-        'reference': 'CLP0415'
-      },
-      {
-        'transport': 'car',
-        departure: 'London',
-        'arrival': 'Rome',
-        'duration': {
-          'h': '04',
-          'm': '15'
-        },
-        'cost': 120,
-        'discount': 20,
-        'reference': 'CLP0415'
-      },
-      {
-        'transport': 'car',
-        departure: 'Rome',
-        'arrival': 'Amsterdam',
-        'duration': {
-          'h': '0',
-          'm': '55'
-        },
-        'cost': 120,
-        'discount': 0,
-        'reference': 'CLP0415'
-      },
-      {
-        'transport': 'car',
-        departure: 'London',
-        'arrival': 'Minsk',
-        'duration': {
-          'h': '0',
-          'm': '55'
-        },
-        'cost': 120,
-        'discount': 0,
-        'reference': 'CLP0415'
-      },
-      {
-        'transport': 'car',
-        departure: 'Minsk',
-        'arrival': 'Paris',
-        'duration': {
-          'h': '0',
-          'm': '55'
-        },
-        'cost': 120,
-        'discount': 0,
-        'reference': 'CLP0415'
-      }
-    ]
-    };
+    return {"currency":"EUR","deals":[{"transport":"train","departure":"London","arrival":"Amsterdam","duration":{"h":"05","m":"00"},"cost":160,"discount":0,"reference":"TLA0500"},{"transport":"bus","departure":"London","arrival":"Amsterdam","duration":{"h":"07","m":"45"},"cost":40,"discount":25,"reference":"BLA0745"},{"transport":"car","departure":"London","arrival":"Amsterdam","duration":{"h":"04","m":"45"},"cost":120,"discount":0,"reference":"CLA0445"},{"transport":"train","departure":"London","arrival":"Paris","duration":{"h":"04","m":"30"},"cost":160,"discount":0,"reference":"TLP0430"},{"transport":"bus","departure":"London","arrival":"Paris","duration":{"h":"05","m":"30"},"cost":40,"discount":50,"reference":"BLP0530"},{"transport":"car","departure":"London","arrival":"Paris","duration":{"h":"04","m":"15"},"cost":120,"discount":0,"reference":"CLP0415"},{"transport":"train","departure":"Amsterdam","arrival":"Warsaw","duration":{"h":"05","m":"15"},"cost":160,"discount":25,"reference":"TAW0515"},{"transport":"bus","departure":"Amsterdam","arrival":"Warsaw","duration":{"h":"05","m":"15"},"cost":40,"discount":25,"reference":"BAW0515"},{"transport":"car","departure":"Amsterdam","arrival":"Warsaw","duration":{"h":"04","m":"45"},"cost":120,"discount":0,"reference":"CAW0445"},{"transport":"train","departure":"Amsterdam","arrival":"Brussels","duration":{"h":"05","m":"30"},"cost":160,"discount":0,"reference":"TAB0530"},{"transport":"bus","departure":"Amsterdam","arrival":"Brussels","duration":{"h":"05","m":"45"},"cost":40,"discount":0,"reference":"BAB0545"},{"transport":"car","departure":"Amsterdam","arrival":"Brussels","duration":{"h":"04","m":"30"},"cost":120,"discount":0,"reference":"CAB0430"},{"transport":"train","departure":"Amsterdam","arrival":"London","duration":{"h":"04","m":"15"},"cost":160,"discount":25,"reference":"TAL0415"},{"transport":"bus","departure":"Amsterdam","arrival":"London","duration":{"h":"05","m":"45"},"cost":40,"discount":50,"reference":"BAL0545"},{"transport":"car","departure":"Amsterdam","arrival":"London","duration":{"h":"04","m":"00"},"cost":120,"discount":0,"reference":"CAL0400"},{"transport":"train","departure":"Warsaw","arrival":"Stockholm","duration":{"h":"05","m":"15"},"cost":160,"discount":25,"reference":"TWS0515"},{"transport":"bus","departure":"Warsaw","arrival":"Stockholm","duration":{"h":"05","m":"15"},"cost":40,"discount":50,"reference":"BWS0515"},{"transport":"car","departure":"Warsaw","arrival":"Stockholm","duration":{"h":"05","m":"15"},"cost":120,"discount":0,"reference":"CWS0515"},{"transport":"train","departure":"Warsaw","arrival":"Prague","duration":{"h":"03","m":"00"},"cost":160,"discount":25,"reference":"TWP0300"},{"transport":"bus","departure":"Warsaw","arrival":"Prague","duration":{"h":"06","m":"15"},"cost":40,"discount":0,"reference":"BWP0615"},{"transport":"car","departure":"Warsaw","arrival":"Prague","duration":{"h":"04","m":"45"},"cost":120,"discount":0,"reference":"CWP0445"},{"transport":"train","departure":"Warsaw","arrival":"Amsterdam","duration":{"h":"05","m":"30"},"cost":160,"discount":0,"reference":"TWA0530"},{"transport":"bus","departure":"Warsaw","arrival":"Amsterdam","duration":{"h":"05","m":"45"},"cost":40,"discount":0,"reference":"BWA0545"},{"transport":"car","departure":"Warsaw","arrival":"Amsterdam","duration":{"h":"04","m":"15"},"cost":120,"discount":0,"reference":"CWA0415"},{"transport":"train","departure":"Stockholm","arrival":"Moscow","duration":{"h":"04","m":"30"},"cost":160,"discount":25,"reference":"TSM0430"},{"transport":"bus","departure":"Stockholm","arrival":"Moscow","duration":{"h":"05","m":"30"},"cost":40,"discount":25,"reference":"BSM0530"},{"transport":"car","departure":"Stockholm","arrival":"Moscow","duration":{"h":"04","m":"00"},"cost":120,"discount":0,"reference":"CSM0400"},{"transport":"train","departure":"Stockholm","arrival":"Warsaw","duration":{"h":"05","m":"00"},"cost":160,"discount":25,"reference":"TSW0500"},{"transport":"bus","departure":"Stockholm","arrival":"Warsaw","duration":{"h":"05","m":"45"},"cost":40,"discount":0,"reference":"BSW0545"},{"transport":"car","departure":"Stockholm","arrival":"Warsaw","duration":{"h":"05","m":"45"},"cost":120,"discount":0,"reference":"CSW0545"},{"transport":"train","departure":"Paris","arrival":"London","duration":{"h":"03","m":"15"},"cost":160,"discount":25,"reference":"TPL0315"},{"transport":"bus","departure":"Paris","arrival":"London","duration":{"h":"06","m":"15"},"cost":40,"discount":50,"reference":"BPL0615"},{"transport":"car","departure":"Paris","arrival":"London","duration":{"h":"05","m":"45"},"cost":120,"discount":0,"reference":"CPL0545"},{"transport":"train","departure":"Paris","arrival":"Brussels","duration":{"h":"05","m":"30"},"cost":160,"discount":25,"reference":"TPB0530"},{"transport":"bus","departure":"Paris","arrival":"Brussels","duration":{"h":"06","m":"30"},"cost":40,"discount":25,"reference":"BPB0630"},{"transport":"car","departure":"Paris","arrival":"Brussels","duration":{"h":"05","m":"45"},"cost":120,"discount":0,"reference":"CPB0545"},{"transport":"train","departure":"Paris","arrival":"Madrid","duration":{"h":"03","m":"15"},"cost":160,"discount":0,"reference":"TPM0315"},{"transport":"bus","departure":"Paris","arrival":"Madrid","duration":{"h":"06","m":"45"},"cost":40,"discount":25,"reference":"BPM0645"},{"transport":"car","departure":"Paris","arrival":"Madrid","duration":{"h":"05","m":"45"},"cost":120,"discount":0,"reference":"CPM0545"},{"transport":"train","departure":"Brussels","arrival":"Amsterdam","duration":{"h":"05","m":"15"},"cost":160,"discount":0,"reference":"TBA0515"},{"transport":"bus","departure":"Brussels","arrival":"Amsterdam","duration":{"h":"05","m":"15"},"cost":40,"discount":50,"reference":"BBA0515"},{"transport":"car","departure":"Brussels","arrival":"Amsterdam","duration":{"h":"04","m":"30"},"cost":120,"discount":0,"reference":"CBA0430"},{"transport":"train","departure":"Brussels","arrival":"Prague","duration":{"h":"03","m":"00"},"cost":160,"discount":0,"reference":"TBP0300"},{"transport":"bus","departure":"Brussels","arrival":"Prague","duration":{"h":"05","m":"45"},"cost":40,"discount":50,"reference":"BBP0545"},{"transport":"car","departure":"Brussels","arrival":"Prague","duration":{"h":"04","m":"30"},"cost":120,"discount":0,"reference":"CBP0430"},{"transport":"train","departure":"Brussels","arrival":"Geneva","duration":{"h":"04","m":"45"},"cost":160,"discount":0,"reference":"TBG0445"},{"transport":"bus","departure":"Brussels","arrival":"Geneva","duration":{"h":"07","m":"15"},"cost":40,"discount":0,"reference":"BBG0715"},{"transport":"car","departure":"Brussels","arrival":"Geneva","duration":{"h":"05","m":"15"},"cost":120,"discount":0,"reference":"CBG0515"},{"transport":"train","departure":"Brussels","arrival":"Paris","duration":{"h":"04","m":"00"},"cost":160,"discount":0,"reference":"TBP0400"},{"transport":"bus","departure":"Brussels","arrival":"Paris","duration":{"h":"05","m":"45"},"cost":40,"discount":0,"reference":"BBP0545"},{"transport":"car","departure":"Brussels","arrival":"Paris","duration":{"h":"04","m":"15"},"cost":120,"discount":0,"reference":"CBP0415"},{"transport":"train","departure":"Prague","arrival":"Warsaw","duration":{"h":"04","m":"30"},"cost":160,"discount":50,"reference":"TPW0430"}]};
   }
 
 }

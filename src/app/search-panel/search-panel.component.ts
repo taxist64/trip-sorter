@@ -42,11 +42,9 @@ export class SearchPanelComponent implements OnInit {
       this.isLocationsEquals = true;
       return;
     }
-
     this.isLocationsEquals = false;
     this.isValidFormSubmitted = true;
     this.router.navigate(['search-results'], { queryParams: resultParams });
-    console.log(this.searchFrom.valid);
   }
 }
 

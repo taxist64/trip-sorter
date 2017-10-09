@@ -28,29 +28,31 @@ export class SearchResultsComponent implements OnInit {
         sortBy: string = params.searchType === 'cheapest' ? 'price' : 'duration';
       let sortArray = [];
 
-      formatResults(resultArray, resultFrom, resultTo, false);
-      function formatResults(correctArr: Array<any>, destFrom: string, destTo: string, currentObj: any) {
+      formatResults(resultArray, resultFrom, false);
+      function formatResults(correctArr: Array<any>, destFrom: string, currentObj: any) {
         if (correctArr.length === 0) {
           currentObj = {};
         } else {
-          _.each(correctArr, function (deal) {
+          var objectFromParent = _.cloneDeep(currentObj);
+          _.each(correctArr, function(deal) {
             if (!deal) {
               return;
             }
-            let sortObj = currentObj || {
-                result: [],
-                price: 0,
-                priceWithoutDiscount: 0,
-                duration: 0
-              };
+            let sortObj,
+              notHaveSameDestinations = true;
             const newArr: Array<any> = _.cloneDeep(resultArray);
-            let newConditonal;
-            if (currentObj) {
-              newConditonal = destTo !== deal.arrival
-            } else {
-              newConditonal = true;
-            }
-            if (deal.departure === destFrom && deal.arrival !== resultFrom && destFrom !== deal.arrival && newConditonal) {
+            sortObj = _.cloneDeep(objectFromParent) || {
+              result: [],
+              price: 0,
+              priceWithoutDiscount: 0,
+              duration: 0
+            };
+            _.each(sortObj.result, function(sortDeal: any) {
+              if (deal.arrival === sortDeal.departure) {
+                notHaveSameDestinations = false;
+              }
+            });
+            if (deal.departure === destFrom && notHaveSameDestinations) {
               if (deal.discount) {
                 deal.price = Number(deal.cost) * (1 - Number(deal.discount) / 100);
                 sortObj.price += deal.price;
@@ -61,7 +63,7 @@ export class SearchResultsComponent implements OnInit {
               sortObj.duration += Number(deal.duration.h) * 60 + Number(deal.duration.m);
               sortObj.result.push(deal);
               if (deal.arrival !== resultTo) {
-                formatResults(_.pull(newArr, deal), deal.arrival, deal.departure, sortObj);
+                formatResults(_.pull(newArr, deal), deal.arrival, sortObj);
               } else {
                 sortArray.push(sortObj);
               }
